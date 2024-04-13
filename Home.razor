@@ -1,0 +1,70 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+@{
+    int idade = 23;
+    string nome = "Alexandre";
+    string email = "ale@ale.com.br";
+
+    void Negrito(string texto)
+    {
+        <strong>@texto</strong>
+    }
+}
+
+@code {
+    Aluno[] alunos = new Aluno[]
+    {
+        new Aluno
+        {
+            Nome = "Ana",
+            Email = "ana@ana.com"
+        },
+        new Aluno
+        {
+            Nome = "Ale",
+            Email = "ale@ale.com"
+        },
+        new Aluno
+        {
+            Nome = "Alan",
+            Email = "alan@alan.com"
+        }
+    };
+}
+
+<h1>Alunos</h1>
+
+<ul>
+    @foreach (var aluno in alunos)
+    {
+        <li>@aluno.Nome - @aluno.Email</li>
+    }
+</ul>
+
+<p>Nome: @nome</p>
+<p>Idade: @idade</p>
+<p>Email: @email</p>
+
+@if(idade >= 18) 
+{
+    <p>Você é maior de idade.</p>
+} 
+else
+{
+    <p>Você não é adulto.</p>
+}
+
+
+@{
+    Negrito("Welcome to Blazor!");<br>
+}
+
+
+@code {
+    private string msg = "Isso é um teste!";
+    private string valorProduto = "10";
+}
